@@ -5,11 +5,16 @@ import java.awt.Color
 import services.RegressionServiceComponent
 import services.impl._
 
-// instantiate the service with its required dependencies
+/**
+ * Simple main object for verifying the basic functioning of this code.
+ * In following the Cake idiom, this object instantiates the service
+ * with its required dependencies, then uses the functionality of the
+ * service.
+ */
 object Main extends RegressionServiceComponent
-  with InMemoryPointRepositoryComponent
   with DefaultPointFactoryComponent
   with DefaultLineFactoryComponent
+  with InMemoryPointRepositoryComponent
   with DefaultRegressionFactoryComponent {
 
   // bring implicit factory method into scope

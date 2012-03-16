@@ -5,13 +5,24 @@ import objects._
 
 /**
  * Concrete component with several dependencies.
+ * In following the Cake idiom, clients intending to use this component
+ * must mix in concrete implementations of this component's dependencies.
+ * See [[fixtures.Main]] for such a client.
  */
 trait RegressionServiceComponent {
 
+  /**
+   * Cake idiom: dependency declaration for later injection by mixin.
+   */
   _: PointRepositoryComponent
      with LineFactoryComponent with RegressionFactoryComponent =>
 
+  /**
+   * The concrete service instance.
+   */
   lazy val regressionService = new RegressionService
+
+  // TODO stateful service, should add factory method for testing
 
   class RegressionService {
 

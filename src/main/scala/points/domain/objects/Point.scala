@@ -3,6 +3,9 @@ package objects
 
 import java.awt.Color
 
+/**
+ * Interface-like trait for a simple color point.
+ */
 trait Point {
 
   def x: Double

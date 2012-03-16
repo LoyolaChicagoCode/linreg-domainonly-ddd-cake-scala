@@ -7,7 +7,9 @@ import services.PointFactoryComponent
 
 /**
  * Concrete component without dependencies.
- * Non-configurable singleton.
+ * In following the Cake idiom, clients use this concrete trait to satisfy
+ * a dependency on an abstraction of this trait.
+ * Stateless, non-configurable singleton provided as object.
  */
 trait DefaultPointFactoryComponent extends PointFactoryComponent {
 
