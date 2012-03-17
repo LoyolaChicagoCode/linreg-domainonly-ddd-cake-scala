@@ -6,19 +6,13 @@ import services.{ PointFactoryComponent, PointRepositoryComponent }
 import objects.Point
 
 /**
- * Concrete component with dependencies.
+ * Concrete component without dependencies.
  * In following the Cake idiom, clients use this concrete trait to satisfy
  * a dependency on an abstraction of this trait.
- * Simple in-memory implementation.
+ * Simple in-memory implementation that does not require a PointFactory.
  * Not thread-safe! Should wrap within TypedActor to use in Play.
  */
 trait InMemoryPointRepositoryComponent extends PointRepositoryComponent {
-
-  _: PointFactoryComponent =>
-
-  val pointRepository = newPointRepository
-
-  def newPointRepository = new InMemoryPointRepository
 
   class InMemoryPointRepository extends PointRepository {
 

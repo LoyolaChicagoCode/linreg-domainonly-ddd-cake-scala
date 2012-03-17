@@ -15,8 +15,6 @@ trait RegressionServiceSpec extends Specification {
    * Cake idiom: dependency declaration for later injection by mixin.
    */
   _: PointFactoryComponent
-  with LineFactoryComponent
-  with RegressionFactoryComponent
   with PointRepositoryComponent
   with RegressionServiceComponent =>
 
@@ -28,6 +26,8 @@ trait RegressionServiceSpec extends Specification {
       (r.line.slope, r.line.yIntercept) should be equalTo (1, 1)
     }
   }
+
+  val regressionService = new RegressionService
 
   val p1 = pointFactory.create(1, 2, Color.GREEN)
   val p2 = pointFactory.create(2, 3, Color.RED)

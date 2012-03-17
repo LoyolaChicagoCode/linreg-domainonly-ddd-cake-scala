@@ -14,15 +14,7 @@ trait RegressionServiceComponent {
   /**
    * Cake idiom: dependency declaration for later injection by mixin.
    */
-  _: PointRepositoryComponent
-     with LineFactoryComponent with RegressionFactoryComponent =>
-
-  /**
-   * The concrete service instance.
-   */
-  lazy val regressionService = new RegressionService
-
-  // TODO stateful service, should add factory method for testing
+  _: PointRepositoryComponent with RegressionFactoryComponent =>
 
   class RegressionService {
 

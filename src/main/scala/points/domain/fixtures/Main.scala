@@ -17,6 +17,10 @@ object Main extends RegressionServiceComponent
   with InMemoryPointRepositoryComponent
   with DefaultRegressionFactoryComponent {
 
+  // create instances of stateful components
+  lazy val pointRepository = new InMemoryPointRepository
+  lazy val regressionService = new RegressionService
+
   // bring implicit factory method into scope
   // for operations on Point that require it
   import pointFactory.createPoint

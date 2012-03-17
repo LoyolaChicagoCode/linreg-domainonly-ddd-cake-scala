@@ -9,4 +9,3 @@ import services.PointFactorySpec
 
 @RunWith(classOf[JUnitRunner])
 class DefaultPointFactorySpec extends PointFactorySpec with DefaultPointFactoryComponent
-

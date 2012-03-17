@@ -4,27 +4,17 @@ package services
 import objects.Point
 
 /**
- * Abstract component with dependencies.
- * In following the Cake idiom, clients use this trait to express their
- * dependency, which can later be provided by a concrete implementation
- * of this trait along with concrete implementations of the dependencies
- * of this trait.
- * Stateful component requires a factory method to facilitate testing.
+ * Abstract component without dependencies.
+ * Concrete implementations might have dependencies on, say,
+ * PointFactoryComponent, which they can express using the Cake idiom.
  */
 trait PointRepositoryComponent {
-
-  /**
-   * Cake idiom: dependency declaration for later injection by mixin.
-   */
-  _: PointFactoryComponent =>
 
   /**
    * Cake idiom: abstract value to be provided by a
    * concrete implementation of this trait.
    */
   val pointRepository: PointRepository
-
-  def newPointRepository: PointRepository
 
   trait PointRepository {
 

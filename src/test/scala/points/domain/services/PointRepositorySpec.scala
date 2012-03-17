@@ -14,7 +14,7 @@ trait PointRepositorySpec extends Specification {
   /**
    * Cake idiom: dependency declaration for later injection by mixin.
    */
-  _: PointRepositoryComponent with PointFactoryComponent =>
+  _: PointFactoryComponent with PointRepositoryComponent =>
 
   "A point repository" should {
     "be initially empty" in {
@@ -49,6 +49,8 @@ trait PointRepositorySpec extends Specification {
       r.findAll must not contain(p1, p2)
     }
   }
+
+  def newPointRepository: PointRepository
 
   val p1 = pointFactory.create(1, 2, Color.GREEN)
   val p2 = pointFactory.create(3, 4, Color.RED)

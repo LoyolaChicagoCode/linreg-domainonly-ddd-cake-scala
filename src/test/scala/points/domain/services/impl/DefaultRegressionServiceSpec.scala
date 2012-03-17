@@ -13,4 +13,7 @@ class DefaultRegressionServiceSpec extends RegressionServiceSpec
   with DefaultLineFactoryComponent
   with DefaultRegressionFactoryComponent
   with InMemoryPointRepositoryComponent
-  with RegressionServiceComponent
+  with RegressionServiceComponent {
+
+  val pointRepository = new InMemoryPointRepository
+}

@@ -19,10 +19,7 @@ class RegressionServiceSpecMockito extends RegressionServiceSpec
   with RegressionServiceComponent
   with Mockito {
 
-  val pointRepository = newPointRepository
-
-  def newPointRepository = mock[PointRepository]
+  val pointRepository = mock[PointRepository]
 
   pointRepository.findAll() returns Iterable(p1, p2)
-
 }

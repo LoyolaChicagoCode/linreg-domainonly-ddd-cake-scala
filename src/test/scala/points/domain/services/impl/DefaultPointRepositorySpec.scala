@@ -10,4 +10,9 @@ import services.PointRepositorySpec
 @RunWith(classOf[JUnitRunner])
 class DefaultPointRepositorySpec extends PointRepositorySpec
   with DefaultPointFactoryComponent
-  with InMemoryPointRepositoryComponent
+  with InMemoryPointRepositoryComponent {
+
+  lazy val pointRepository = throw new UnsupportedOperationException
+
+  def newPointRepository = new InMemoryPointRepository
+}
