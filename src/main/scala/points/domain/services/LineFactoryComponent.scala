@@ -13,10 +13,10 @@ import objects.Line
 trait LineFactoryComponent {
 
   /**
-   * Cake idiom: abstract value to be provided by a
+   * Cake idiom: factory method to be provided by a
    * concrete implementation of this trait.
    */
-  val lineFactory: LineFactory
+  def lineFactory: LineFactory
 
   trait LineFactory {
 

@@ -13,15 +13,13 @@ import objects.Point
 trait PointFactoryComponent {
 
   /**
-   * Cake idiom: abstract value to be provided by a
+   * Cake idiom: factory method to be provided by a
    * concrete implementation of this trait.
    */
-  val pointFactory: PointFactory
+  def pointFactory: PointFactory
 
   trait PointFactory {
 
     def create(x: Double, y: Double, color: Color): Point
-
-    implicit val createPoint = pointFactory.create _
   }
 }

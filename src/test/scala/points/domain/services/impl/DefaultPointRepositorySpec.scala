@@ -12,7 +12,8 @@ class DefaultPointRepositorySpec extends PointRepositorySpec
   with DefaultPointFactoryComponent
   with InMemoryPointRepositoryComponent {
 
-  lazy val pointRepository = throw new UnsupportedOperationException
-
-  def newPointRepository = new InMemoryPointRepository
+  /**
+   * Provides a new instance on every invocation for ease of testing.
+   */
+  override def pointRepository = new InMemoryPointRepository
 }

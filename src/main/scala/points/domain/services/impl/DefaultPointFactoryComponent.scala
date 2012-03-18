@@ -6,10 +6,10 @@ import objects.Point
 import services.PointFactoryComponent
 
 /**
- * Concrete component without dependencies.
+ * Concrete, sealed, stateless, non-configurable component without dependencies.
+ * Implemented as a singleton object.
  * In following the Cake idiom, clients use this concrete trait to satisfy
  * a dependency on an abstraction of this trait.
- * Stateless, non-configurable singleton provided as object.
  */
 trait DefaultPointFactoryComponent extends PointFactoryComponent {
 

@@ -6,13 +6,21 @@ import services.{ PointFactoryComponent, PointRepositoryComponent }
 import objects.Point
 
 /**
- * Concrete component without dependencies.
+ * Concrete, stateful component without dependencies.
+ * For convenience, an instance is provided lazily and extensibly.
  * In following the Cake idiom, clients use this concrete trait to satisfy
  * a dependency on an abstraction of this trait.
  * Simple in-memory implementation that does not require a PointFactory.
  * Not thread-safe! Should wrap within TypedActor to use in Play.
  */
 trait InMemoryPointRepositoryComponent extends PointRepositoryComponent {
+
+  /**
+   * An instance that gets initialized only if used.
+   */
+  private lazy val instance = new InMemoryPointRepository
+
+  def pointRepository = instance
 
   class InMemoryPointRepository extends PointRepository {
 

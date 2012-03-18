@@ -11,23 +11,19 @@ import org.specs2.mutable._
  */
 trait RegressionServiceSpec extends Specification {
 
-  /**
-   * Cake idiom: dependency declaration for later injection by mixin.
-   */
-  _: PointFactoryComponent
-  with PointRepositoryComponent
-  with RegressionServiceComponent =>
+  _: PointFactoryComponent =>
 
   "A regression service" should {
     "compute a simple regression line" in {
-      val i1 = pointRepository.add(p1)
-      val i2 = pointRepository.add(p2)
-      val r = regressionService.perform()
+      val subject = setupSubjectInstance
+      val i1 = subject.pointRepository.add(p1)
+      val i2 = subject.pointRepository.add(p2)
+      val r = subject.regressionService.perform()
       (r.line.slope, r.line.yIntercept) should be equalTo (1, 1)
     }
   }
 
-  val regressionService = new RegressionService
+  def setupSubjectInstance: PointRepositoryComponent with RegressionServiceComponent
 
   val p1 = pointFactory.create(1, 2, Color.GREEN)
   val p2 = pointFactory.create(2, 3, Color.RED)

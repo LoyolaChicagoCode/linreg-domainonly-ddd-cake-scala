@@ -18,30 +18,30 @@ trait PointRepositorySpec extends Specification {
 
   "A point repository" should {
     "be initially empty" in {
-      val r = newPointRepository
+      val r = pointRepository
       r.findAll must be empty
     }
     "find a newly added point by ID" in {
-      val r = newPointRepository
+      val r = pointRepository
       val s = r.findAll size
       val id = r.add(p1)
       (r.findById(id), r.findAll size) should be equalTo (Some(p1), s + 1)
     }
     "not find a newly added point by ID after it is removed" in {
-      val r = newPointRepository
+      val r = pointRepository
       val s = r.findAll size
       val id = r.add(p1)
       r.remove(id)
       (r.findById(id), r.findAll size) should be equalTo (None, s)
     }
     "handle the addition of multiple points" in {
-      val r = newPointRepository
+      val r = pointRepository
       r.add(p1)
       r.add(p2)
       r.findAll must contain(p1, p2)
     }
     "handle the removal of multiple points" in {
-      val r = newPointRepository
+      val r = pointRepository
       val i1 = r.add(p1)
       val i2 = r.add(p2)
       r.remove(i1)
@@ -49,8 +49,6 @@ trait PointRepositorySpec extends Specification {
       r.findAll must not contain(p1, p2)
     }
   }
-
-  def newPointRepository: PointRepository
 
   val p1 = pointFactory.create(1, 2, Color.GREEN)
   val p2 = pointFactory.create(3, 4, Color.RED)

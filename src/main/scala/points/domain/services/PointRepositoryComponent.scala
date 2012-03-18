@@ -11,10 +11,10 @@ import objects.Point
 trait PointRepositoryComponent {
 
   /**
-   * Cake idiom: abstract value to be provided by a
+   * Cake idiom: factory method to be provided by a
    * concrete implementation of this trait.
    */
-  val pointRepository: PointRepository
+  def pointRepository: PointRepository
 
   trait PointRepository {
 

@@ -8,4 +8,5 @@ import org.specs2.runner.JUnitRunner
 import services.PointFactorySpec
 
 @RunWith(classOf[JUnitRunner])
-class DefaultPointFactorySpec extends PointFactorySpec with DefaultPointFactoryComponent
+class DefaultPointFactorySpec extends PointFactorySpec
+  with DefaultPointFactoryComponent
