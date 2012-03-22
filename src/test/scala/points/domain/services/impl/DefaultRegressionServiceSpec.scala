@@ -29,7 +29,7 @@ class DefaultRegressionServiceSpec extends RegressionServiceSpec
     }
   }
 
-  def setupSubjectInstance = new DefaultLineFactoryComponent
+  override def setupSubjectInstance = new DefaultLineFactoryComponent
     with DefaultPointFactoryComponent
     with InMemoryPointRepositoryComponent
     with DefaultRegressionFactoryComponent

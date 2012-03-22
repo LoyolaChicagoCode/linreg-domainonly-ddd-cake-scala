@@ -20,7 +20,7 @@ class MockitoRegressionServiceSpec extends RegressionServiceSpec
     with DefaultRegressionServiceComponent
     with Mockito {
     // implement factory method with mock repository
-    val pointRepository = mock[PointRepository]
+    override val pointRepository = mock[PointRepository]
     pointRepository.findAll() returns Iterable(p1, p2)
   }
 }
