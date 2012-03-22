@@ -13,7 +13,7 @@ import services.LineFactoryComponent
  */
 trait DefaultLineFactoryComponent extends LineFactoryComponent {
 
-  object lineFactory extends LineFactory {
+  override object lineFactory extends LineFactory {
 
     sealed case class DefaultLine(slope: Double, yIntercept: Double) extends Line
 

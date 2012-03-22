@@ -19,14 +19,7 @@ trait DefaultRegressionServiceComponent extends RegressionServiceComponent {
    */
   _: PointRepositoryComponent with RegressionFactoryComponent =>
 
-  /**
-   * An instance that gets initialized only if used.
-   */
-  private lazy val instance = new DefaultRegressionService
-
-  def regressionService = instance
-
-  class DefaultRegressionService extends RegressionService {
+  override object regressionService extends RegressionService {
 
     private def forPoint(acc: (Double, Double, Double, Double, Double), p: Point) =
       (acc._1 + p.x, acc._2 + p.y, acc._3 + p.x * p.x, acc._4 + p.x * p.y, acc._5 + p.y * p.y)
@@ -40,6 +33,6 @@ trait DefaultRegressionServiceComponent extends RegressionServiceComponent {
       val slope = sxy / sxx
       val yIntercept = (sumy - slope * sumx) / n
       regressionFactory.create(slope, yIntercept, points)
-	}
+    }
   }
 }

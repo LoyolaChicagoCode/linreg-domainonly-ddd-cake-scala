@@ -22,7 +22,8 @@ object Main {
       with DefaultRegressionFactoryComponent
       with DefaultRegressionServiceComponent
 
-    // bring repository and service into scope
+    // bring required parts of top-level component into scope:
+    // factory, repository, and service
     import assembly._
 
     // bring implicit factory method into scope

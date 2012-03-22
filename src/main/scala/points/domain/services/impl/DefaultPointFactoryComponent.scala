@@ -13,7 +13,7 @@ import services.PointFactoryComponent
  */
 trait DefaultPointFactoryComponent extends PointFactoryComponent {
 
-  object pointFactory extends PointFactory {
+  override object pointFactory extends PointFactory {
 
     sealed case class DefaultPoint(x: Double, y: Double, color: Color) extends Point
 

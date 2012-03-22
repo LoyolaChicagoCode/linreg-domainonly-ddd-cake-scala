@@ -13,7 +13,7 @@ import services._
 class MockitoRegressionServiceSpec extends RegressionServiceSpec
   with DefaultPointFactoryComponent {
 
-  def setupSubjectInstance = new DefaultLineFactoryComponent
+  override def setupSubjectInstance = new DefaultLineFactoryComponent
     with DefaultPointFactoryComponent
     with PointRepositoryComponent
     with DefaultRegressionFactoryComponent

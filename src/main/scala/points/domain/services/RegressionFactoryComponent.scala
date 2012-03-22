@@ -6,6 +6,8 @@ import objects._
 
 /**
  * Abstract component without dependencies.
+ * Concrete implementations might have dependencies on, say,
+ * LineFactoryComponent, which they can express using the Cake idiom.
  * In following the Cake idiom, clients use this trait to express their
  * dependency, which can later be provided by a concrete implementation
  * of this trait.

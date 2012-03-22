@@ -20,7 +20,7 @@ trait InMemoryPointRepositoryComponent extends PointRepositoryComponent {
    */
   private lazy val instance = new InMemoryPointRepository
 
-  def pointRepository = instance
+  override def pointRepository = instance
 
   class InMemoryPointRepository extends PointRepository {
 
