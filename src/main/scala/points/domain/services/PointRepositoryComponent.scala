@@ -15,17 +15,22 @@ trait PointRepositoryComponent {
    * concrete implementation of this trait.
    */
   def pointRepository: PointRepository
+}
 
-  trait PointRepository {
+/**
+ * Point repository abstraction. To enable sharing of instances
+ * across clients, this trait is defined at the top level.
+ * Such sharing is equivalent to singleton scope.
+ */
+trait PointRepository {
 
-    def add(p: Point): Long
+  def add(p: Point): Long
 
-    def findById(id: Long): Option[Point]
+  def findById(id: Long): Option[Point]
 
-    def findAll(): Iterable[Point]
+  def findAll(): Iterable[Point]
 
-    def remove(id: Long): Boolean
+  def remove(id: Long): Boolean
 
-    def update(id: Long, p: Point): Boolean
-  }
+  def update(id: Long, p: Point): Boolean
 }

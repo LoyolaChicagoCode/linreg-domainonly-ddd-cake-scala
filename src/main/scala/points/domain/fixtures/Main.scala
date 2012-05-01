@@ -14,27 +14,31 @@ object Main {
 
   def main(args: Array[String]) {
 
-    // assemble top-level component
-    object assembly
+    // assemble first top-level component
+    object assembly1
       extends DefaultLineFactoryComponent
       with DefaultPointFactoryComponent
       with InMemoryPointRepositoryComponent
       with DefaultRegressionFactoryComponent
       with DefaultRegressionServiceComponent
 
-    // bring required parts of top-level component into scope:
-    // factory, repository, and service
-    import assembly._
-
     // bring implicit factory method into scope
     // for operations on Point that require it
-    implicit val createPoint = pointFactory.create _
+    implicit val createPoint = assembly1.pointFactory.create _
 
     val p1 = createPoint(3, 4, Color.ORANGE) * 7
     val p2 = p1 + p1
-    val i1 = pointRepository.add(p1)
-    val i2 = pointRepository.add(p2)
-    val r = regressionService.perform()
+    val i1 = assembly1.pointRepository.add(p1)
+    val i2 = assembly1.pointRepository.add(p2)
+    val r  = assembly1.regressionService.perform()
     println(r)
+
+    object assembly2
+      extends DefaultPointFactoryComponent
+      with InMemoryPointRepositoryComponent
+      with DefaultCenterOfGravityServiceComponent
+
+    val p = assembly2.centerOfGravityService.perform()
+    println(p)
   }
 }
