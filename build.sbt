@@ -8,7 +8,7 @@ scalacOptions += "-deprecation"
 
 libraryDependencies ++= Seq(
   "junit" % "junit" % "4.7",
-  "org.specs2" %% "specs2" % "1.8.2" % "test",
+  "org.specs2" %% "specs2" % "1.11",
   "org.mockito" % "mockito-all" % "1.9.0",
   "org.hamcrest" % "hamcrest-all" % "1.1"
 )
